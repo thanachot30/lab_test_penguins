@@ -9,7 +9,7 @@ from sklearn.preprocessing import StandardScaler, OneHotEncoder
 
 # Load the saved model
 with open("model_penguin_64130701704.pkl", "rb") as file:
-    model = pickle.load(file)
+    model, species_encoder, island_encoder ,sex_encoder = pickle.load(file)
 
 # Streamlit app
 st.title("Penguin Species Prediction App")
