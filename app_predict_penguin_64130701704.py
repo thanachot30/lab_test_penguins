@@ -36,7 +36,7 @@ if st.button("Predict Species"):
     })
 
     # Predict species
-    prediction = model.predict(input_data)[0]
-    st.write(f"Predicted Species: {prediction}")
+    prediction = model.predict(input_data)
+    st.write(f"Predicted Species: {prediction[0]}")
 
 
