@@ -41,5 +41,6 @@ if st.button("Predict Species"):
     # Predict species
     prediction = model.predict(input_data)[0]
     st.write(f"Predicted Species: {prediction}")
+    st.write(f"Predicted Species: {species_encoder.inverse_transform(prediction)}")
 
 
