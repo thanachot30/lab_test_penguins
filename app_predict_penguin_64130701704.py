@@ -16,7 +16,6 @@ with open("model_penguin_64130701704.pkl", "rb") as file:
 st.title("Penguin Species Prediction App")
 st.write("This app predicts the penguin species based on several features.")
 
-User input
 island = st.selectbox("Island", ["Biscoe", "Dream", "Torgersen"])
 culmen_length_mm = st.number_input("Culmen Length (mm)", min_value=0.0)
 culmen_depth_mm = st.number_input("Culmen Depth (mm)", min_value=0.0)
