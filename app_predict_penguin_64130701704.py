@@ -16,13 +16,14 @@ with open("model_penguin_64130701704.pkl", "rb") as file:
 st.title("Penguin Species Prediction App")
 st.write("This app predicts the penguin species based on several features.")
 
-# User input
+User input
 island = st.selectbox("Island", ["Biscoe", "Dream", "Torgersen"])
 culmen_length_mm = st.number_input("Culmen Length (mm)", min_value=0.0)
 culmen_depth_mm = st.number_input("Culmen Depth (mm)", min_value=0.0)
 flipper_length_mm = st.number_input("Flipper Length (mm)", min_value=0.0)
 body_mass_g = st.number_input("Body Mass (g)", min_value=0.0)
 sex = st.selectbox("Sex", ["MALE", "FEMALE"])
+
 
 # Prediction
 if st.button("Predict Species"):
@@ -35,6 +36,8 @@ if st.button("Predict Species"):
         "body_mass_g": [body_mass_g],
         "sex": [sex]
     })
+    input_data['island'] = island_encoder.transform(input_data['island'])
+    input_data['sex'] = sex_encoder.transform(input_data['sex'])
 
     # Predict species
     prediction = model.predict(input_data)[0]
